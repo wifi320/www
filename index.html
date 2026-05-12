@@ -195,7 +195,11 @@
         const SUPABASE_URL = 'ضع_هنا_رابط_المشروع_الموجود_في_Secrets';
         const SUPABASE_KEY = 'ضع_هنا_المفتاح_الموجود_في_Secrets';
 
-        const _supabase = supabase.createClient(https://jcxysqjhfoabcsobfvts.supabase.co/rest/v1/, bc74d3ea-55df-4cc6-bd56-907a42d72372);
+                // --- إعدادات Supabase النهائية ---
+        const SUPABASE_URL = 'https://jcxysqjhfoabcsobfvts.supabase.co';
+        const SUPABASE_KEY = 'sb_publishable__d_8ybJ6m0dzK75GFJ5nMg_hWV3oOSx';
+
+        const _supabase = supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
         async function validateForm(event) {
             event.preventDefault();
