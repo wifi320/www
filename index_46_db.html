@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Check sticker – Arab Computers | حاسبات العرب</title>
+<style>
+:root{--ink:#222;--muted:#666;--red:#ed1c24;--line:#e9e9e9;--footer:#f6f6f8;--gold:#b58a1e;--max:1170px}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:var(--ink);font-family:Arial,"Tahoma",sans-serif;background:#fff;line-height:1.55}.wrap{width:min(var(--max),calc(100% - 48px));margin:auto}.site-header{border-bottom:1px solid var(--line);background:#fff}.topbar{min-height:89px;display:flex;align-items:center;justify-content:flex-start;direction:ltr}.brand img{width:124px;height:auto;display:block}.nav{border-top:1px solid #f1f1f1;display:flex;justify-content:center;gap:35px;min-height:42px;align-items:center;direction:ltr}.nav a{color:#111;text-decoration:none;font-size:14px;white-space:nowrap}.nav a:hover{text-decoration:underline}.crumbs{font-size:12px;color:#222;padding:10px 0 0;direction:ltr}.crumbs a{color:#1681c4;text-decoration:none}.main{min-height:588px;text-align:center;padding:26px 16px 76px}.main h1{font-size:clamp(25px,3vw,30px);line-height:1.2;margin:0 0 8px;font-weight:700;letter-spacing:-.3px}.lead{font-size:14px;margin:0 auto 23px;direction:ltr}.lead .ar{display:block;direction:rtl}.sticker{display:block;width:min(290px,80vw);height:auto;margin:0 auto 17px;border-radius:2px}.instruction{font-size:13px;line-height:1.65;margin:0 auto 10px}.instruction .ar{display:block;direction:rtl}.checker{display:flex;direction:ltr;justify-content:center;align-items:stretch;margin:0 auto;max-width:260px;height:31px}.checker input{width:145px;border:1px solid var(--gold);border-right:0;border-radius:20px 0 0 20px;padding:0 13px;color:#777;font-size:12px;outline:none}.checker input:focus{border-color:#e49a26}.qr,.check{border:0;color:#fff;cursor:pointer}.qr{width:32px;background:var(--gold);border-radius:0 5px 5px 0;font-size:17px}.check{width:73px;background:var(--gold);margin-left:6px;border-radius:5px;font-size:12px}.qr:hover,.check:hover{background:#7b5c00}.check:disabled{opacity:.65;cursor:wait}.notice{max-width:760px;margin:34px auto 0;color:var(--red);font-weight:700;font-size:12px;line-height:1.65}.notice strong{display:block;font-size:13px}.notice a{color:#111;text-decoration:underline}.status{min-height:22px;margin:9px auto 0;font-size:12px;font-weight:700}.status.success{color:#168349}.status.error{color:var(--red)}.site-footer{background:var(--footer);padding:54px 0 22px;color:#222}.footer-grid{display:grid;grid-template-columns:1.2fr repeat(3,1fr);gap:28px;direction:ltr}.footer-col{text-align:left}.footer-brand{display:flex;flex-direction:column;align-items:flex-start;text-align:left}.footer-col h3{font-size:14px;margin:0 0 14px}.footer-col a,.footer-col p{display:block;color:#222;text-decoration:none;font-size:12px;margin:4px 0}.footer-brand img{width:125px}.linkedin{margin-top:18px}.copyright{text-align:center;border-top:1px solid #ddd;margin-top:35px;padding-top:17px;font-size:11px}.top{text-align:center;display:block;color:#222;text-decoration:none;font-size:11px;margin-top:10px}@media(max-width:720px){.wrap{width:min(100% - 28px,600px)}.topbar{min-height:72px}.brand img{width:108px}.nav{gap:14px;overflow:auto;justify-content:flex-start;padding:0 4px}.nav a{font-size:12px}.main{padding-top:22px;min-height:620px}.main h1{font-size:25px}.footer-grid{grid-template-columns:repeat(2,1fr);gap:25px}.footer-brand{grid-column:1/-1;display:flex;flex-direction:column;align-items:flex-start;text-align:left}.footer-col{text-align:center}.footer-col h3{margin-bottom:8px}}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+<header class="site-header"><div class="topbar wrap"><a class="brand" href="https://arabcomputers.com.sa/"><img src="https://arabcomputers.com.sa/wp-content/uploads/2022/04/AC-AAD-logo.png" alt="Arab Computers"></a></div></header>
+<div class="wrap crumbs"><a href="https://arabcomputers.com.sa/">Home</a> / Check sticker</div>
+<main class="main"><h1>Warranty sticker validation</h1><p class="lead">Check if the warranty sticker on your product is genuine.<span class="ar">تأكد إذا كان ملصق الضمان الموجود على منتجك هو ملصق أصلي أو مزيف</span></p><img class="sticker" src="https://arabcomputers.com.sa/wp-content/uploads/2026/01/Warranty-sticker-26.jpg" alt="Warranty sticker example"><p class="instruction">Enter the number shown on the sticker in this box:<span class="ar">أدخل الرقم الموجود على الملصق هنا</span></p><form class="checker" id="checker"><input id="serial" required autocomplete="off" placeholder="XXXXXX" aria-label="Sticker number"><button class="qr" type="button" id="qr" title="Scan QR Code" aria-label="Scan QR Code">▦</button><button class="check" type="submit">Check</button></form><div class="status" id="status" role="status" aria-live="polite"></div><section class="notice"><p>نحذر عملائنا الكرام من وجود ملصق ضمان مزور يحتوي على رمز إستجابة سريع يوجه المستخدمين لصفحة إلكترونية مزورة تشبه هذه الصفحة<br>يجب أن يكون عنوان الصفحة يتبع لعنوان موقعنا الرسمي:<a href="https://arabcomputers.com.sa/">arabcomputers.com.sa/</a></p><strong>Important Notice to Our Valued Customers:</strong><p>We would like to alert you to the presence of counterfeit warranty stickers featuring a QR code that directs users to a fraudulent website designed to imitate the official Arab Computers website.</p></section></main>
+<footer class="site-footer"><div class="wrap footer-grid"><div class="footer-col footer-brand"><img src="https://arabcomputers.com.sa/wp-content/uploads/2022/04/AC-AAD-logo-300x118.png" alt="Arab Computers"><a class="linkedin" href="https://www.linkedin.com/company/arabcomputers/">Linked in</a></div><div class="footer-col"><h3>Useful Links</h3><a href="https://arabcomputers.sa/">Home</a><a href="https://arabcomputers.com.sa/point-of-sales">Point Of Sales</a><a href="https://arabcomputers.com.sa/contact/">Contact Us</a><a href="https://arabcomputers.com.sa/dpp/">DPP</a></div><div class="footer-col"><h3>Products</h3><a href="#">iPhone</a><a href="#">Mac</a><a href="#">iPad</a><a href="#">iPod</a><a href="#">Apple TV</a><a href="#">Apple Watch</a></div><div class="footer-col"><h3>Information</h3><a href="#">Learn How</a><a href="https://arabcomputers.sa/apple-authorised-service-provider/">Service Providers</a><a href="https://arabcomputers.sa/terms-and-conditions/">Terms and condition</a><h3>Contact us</h3><a href="https://ac-care.com.sa">Visit AC-Care</a><a href="https://arabcomputers.com.sa/point-of-sales/">Point of sales</a><p>sales@arabcomputers.com.sa</p></div></div><div class="copyright">© Arab Computers 2022. All Rights Reserved</div><a class="top" href="#">Back to Top</a></footer>
+
+<style id="qr-styles">#qr-overlay{position:fixed;inset:0;z-index:9999;display:grid;place-items:center;background:rgba(0,0,0,.62);padding:16px}.qr-dialog{position:relative;width:min(420px,100%);background:#fff;border-radius:12px;padding:22px;text-align:center;direction:rtl}.qr-dialog h3{margin:0 0 12px}.qr-dialog p{font-size:12px;color:#666;margin:12px 0 0}.qr-close{position:absolute;top:5px;left:10px;border:0;background:transparent;color:#555;font-size:28px;cursor:pointer}.qr-dialog #qr-reader{width:100%;direction:ltr}.qr-dialog #qr-reader__dashboard_section_csr button{background:#b58a1e;color:#fff;border:0;border-radius:5px;padding:7px 12px;cursor:pointer}</style>
+<script>
+const SUPABASE_URL = 'https://iejaflpeniiovjouvxbb.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_z09VVn-Gx2Ulvxg0gv7WHQ_S6QE28Ex';
+const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
+const form = document.querySelector('#checker');
+const input = document.querySelector('#serial');
+const status = document.querySelector('#status');
+const check = form.querySelector('.check');
+function normalizeCode(value) { return String(value || '').trim().toUpperCase().replace(/[\s-]/g, ''); }
+async function claimCode(code) {
+  const { data, error } = await db.from('verification_codes').select('id,is_used').eq('code', code).maybeSingle();
+  if (error) throw error;
+  if (!data) return 'invalid';
+  if (data.is_used) return 'used';
+  const { data: claimed, error: claimError } = await db.from('verification_codes').update({ is_used: true }).eq('id', data.id).eq('is_used', false).select('id').maybeSingle();
+  if (claimError) throw claimError;
+  return claimed ? 'valid' : 'used';
+}
+form.addEventListener('submit', async event => {
+  event.preventDefault();
+  const code = normalizeCode(input.value);
+  status.className = 'status';
+  if (!code) { status.classList.add('error'); status.textContent = 'Please enter the sticker number.'; input.focus(); return; }
+  check.disabled = true; status.textContent = 'Checking…';
+  try {
+    const result = await claimCode(code);
+    status.className = 'status ' + (result === 'valid' ? 'success' : 'error');
+    status.textContent = result === 'valid' ? 'The code is correct ✅ هذا الرمز صحيح' : result === 'used' ? 'This code has already been used ❌ تم استخدام هذا الرمز مسبقاً !' : 'Code not found ❌ هذا الرمز غير موجود !';
+  } catch (error) {
+    console.error('Database verification error:', error);
+    status.className = 'status error';
+    status.textContent = 'Error ❌ حدث خطأ في الاتصال بقاعدة البيانات';
+  } finally { check.disabled = false; }
+});
+</script>
+</body>
+</html>
